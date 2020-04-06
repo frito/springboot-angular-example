@@ -1,0 +1,73 @@
+<div *ngIf="casesInfo">
+
+  <h1>Count problems for {{casesInfo.name}}</h1>
+
+  <table style="width:100%">
+    <tr>
+      <td>Spent time in minutes :</td>
+      <td><b>{{casesInfo.durationMinutes}}</b></td>
+    <tr>
+      <td>Spent time in hours :</td>
+      <td><b>{{casesInfo.durationHours}}</b></td>
+    </tr>
+    <tr>
+      <td>Number of problems :</td>
+      <td><b>{{casesInfo.cases.length}}</b></td>
+    </tr>
+    <tr>
+      <td>Cumulated costs :</td>
+      <td><h2><b>{{casesInfo.costs}} EUR</b></h2></td>
+    </tr>
+    <tr>
+    </tr>
+  </table>
+  <hr>
+
+
+  <div style="background-color:lightgrey; padding: 10px;">
+    <form #projectsForm="ngForm" (ngSubmit)="save(projectsForm)">
+
+      <br><br><h2>New problem</h2><br><br>
+
+      <div class="form-group">
+        <label for="user">User</label>
+        <input id="user" name="user" [(ngModel)]="newUser" type="text" class="form-control" placeholder="Enter something unique or keep empty if you want to be anonymous">
+      </div>
+      <div class="form-group">
+        <label for="desc">Description of problem (and solution if possible)</label>
+        <textarea id="desc" rows="5" name="desc" [(ngModel)]="newDescription" type="text" class="form-control"
+               placeholder="Enter a description of your problem (and optionally a solution)">
+        </textarea>
+      </div>
+      <div class="form-group">
+        <label for="duration">Duration in minutes</label>
+        <input id="duration" name="duration" [(ngModel)]="newDuration" type="text" class="form-control"
+               placeholder="Enter the duration you needed in minutes">
+      </div>
+
+      <div class="form-group">
+        <button type="submit" id="btnSave" class="btn btn-primary">
+          <span class="fa fa-floppy-save" aria-hidden="true"></span> Send
+        </button>
+      </div>
+
+    </form>
+  </div>
+
+  <hr>
+
+
+  <table style="width:100%; padding-top: 30px;" >
+    <tr *ngFor="let case of casesInfo.cases">
+      <td>{{case.date}}</td>
+      <td>{{case.user}}</td>
+      <td><b>{{case.description}}</b></td>
+      <td>{{case.durationMinutes}}</td>
+    </tr>
+  </table>
+
+</div>
+
+
+
+

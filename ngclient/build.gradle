@@ -1,0 +1,46 @@
+plugins {
+  id "com.moowork.node" version "1.2.0"
+  id 'org.hidetake.swagger.generator' version '2.9.0'
+}
+
+
+dependencies {
+  swaggerCodegen 'io.swagger:swagger-codegen-cli:2.3.0'
+}
+
+node {
+  npmVersion = '5.5.1'
+  nodeModulesDir = file("${project.projectDir}")
+}
+
+//https://github.com/int128/gradle-swagger-generator-plugin
+swaggerSources {
+  restclient {
+    inputFile = project(':server').file('src/main/resources/example.yaml')
+    code {
+      outputDir = project.file('src/app/api')
+      language = 'typescript-angular'
+    }
+  }
+}
+
+task buildClientDev(type: NpmTask, dependsOn: 'npmInstall') {
+    group = 'build'
+    description = 'Compile client side folder for development'
+    args = ['run','buildDev']
+}
+
+task buildClient(type:NpmTask, dependsOn:'npmInstall') {
+    group = 'build'
+    description = "Compile client side folder for production"
+    args = ['run','build']
+  }
+
+buildClient.dependsOn tasks.generateSwaggerCode
+buildClientDev.dependsOn tasks.generateSwaggerCode
+
+
+tasks.classes.dependsOn tasks.npmInstall
+tasks.classes.dependsOn tasks.generateSwaggerCode
+tasks.classes.mustRunAfter tasks.buildClient
+tasks.classes.mustRunAfter tasks.buildClientDev

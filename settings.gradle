@@ -1,0 +1,3 @@
+include 'server'
+include 'ngclient'
+rootProject.name = 'springboot-angular-example'

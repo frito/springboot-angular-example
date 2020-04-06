@@ -1,0 +1,77 @@
+---
+  swagger: "2.0"
+  info: 
+    version: "1.0.0"
+    title: "Leguan Rest API"
+    description: "Rest API for Leguan Refactoring Server"
+    termsOfService: "http://swagger.io/terms/"
+  host: "localhost:8080"
+  basePath: "/api"
+  schemes:
+    - "http"
+  securityDefinitions:
+    basicAuth:
+      type: basic
+  # To apply Basic auth to the whole API:
+  security:
+    - basicAuth: []
+  paths:
+
+    /case/list:
+        get:
+          tags:
+            - case
+          operationId: "getCases"
+          description: "return all infos about cases"
+          produces:
+            - "application/json"
+          responses:
+            "200":
+              schema:
+                $ref: "#/definitions/CasesInfo"
+
+    /case/upload  :
+      put:
+        tags:
+         - case
+        operationId: "sendCase"
+        description: "Sends a new caseinfo"
+        parameters:
+          - in: body
+            name: mailadress
+            required: true
+            schema:
+              $ref: "#/definitions/CaseInfo"
+
+
+  definitions:
+    CaseInfo:
+      type: "object"
+      properties:
+        user:
+          type: "string"
+        date:
+          type: "string"
+        description:
+          type: "string"
+        durationMinutes:
+          type: "integer"
+
+    CasesInfo:
+          type: "object"
+          properties:
+            name:
+              type: "string"
+            costs:
+              type: "number"
+              format: "double"
+            durationMinutes:
+              type: "integer"
+            durationHours:
+              type: "number"
+              format: "double"
+
+            cases:
+              type: "array"
+              items:
+                $ref: "#/definitions/CaseInfo"

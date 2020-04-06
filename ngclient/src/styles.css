@@ -1,0 +1,192 @@
+/* You can add global styles to this file, and also import other style files */
+@import '~bootstrap/dist/css/bootstrap.min.css';
+@import '~@swimlane/ngx-datatable/release/index.css';
+@import '~@swimlane/ngx-datatable/release/themes/material.css';
+@import '~@swimlane/ngx-datatable/release/assets/icons.css';
+.logo {
+        height: 50px;
+        width: 50px;
+}
+
+.navbar-right {
+  margin-left: auto;
+  float: right;
+}
+
+.navbar-nav {
+  background: rgb(204, 209, 198);  
+}
+
+.navbar {
+    background: rgb(204, 209, 198);
+}
+
+.side {
+    margin-right: 1cm;
+    margin-top: 1cm;
+    margin-bottom: 1cm; 
+    margin-left: 1cm;
+}
+
+
+.chapter {
+    margin-bottom: 2cm;
+}
+
+h1 {
+    color: darkgrey;
+    margin-bottom: 1cm; 
+}
+
+h2 {
+    color: black
+}
+
+.card {
+  margin-bottom: 30px;
+  padding: 10px;
+}
+
+
+.panel-default {
+    padding: 20px;
+    background: rgb(248, 246, 246);
+}
+
+.header {
+    margin-bottom:20px;
+}
+
+.ngx-datatable.material.single-selection .datatable-body-row.active:hover,
+.ngx-datatable.material.single-selection .datatable-body-row.active:hover .datatable-row-group, .ngx-datatable.material.multi-selection .datatable-body-row.active:hover,
+.ngx-datatable.material.multi-selection .datatable-body-row.active:hover .datatable-row-group, .ngx-datatable.material.multi-click-selection .datatable-body-row.active:hover,
+.ngx-datatable.material.multi-click-selection .datatable-body-row.active:hover .datatable-row-group {
+  background-color: darkgrey;
+  color: #FFF; 
+}
+
+.ngx-datatable.material.single-selection .datatable-body-row.active:focus,
+.ngx-datatable.material.single-selection .datatable-body-row.active:focus .datatable-row-group, .ngx-datatable.material.multi-selection .datatable-body-row.active:focus,
+.ngx-datatable.material.multi-selection .datatable-body-row.active:focus .datatable-row-group, .ngx-datatable.material.multi-click-selection .datatable-body-row.active:focus,
+.ngx-datatable.material.multi-click-selection .datatable-body-row.active:focus .datatable-row-group {
+  background-color: darkgrey;
+  color: #FFF; }
+
+  .ngx-datatable.material.single-selection .datatable-body-row.active,
+  .ngx-datatable.material.single-selection .datatable-body-row.active .datatable-row-group, .ngx-datatable.material.multi-selection .datatable-body-row.active,
+  .ngx-datatable.material.multi-selection .datatable-body-row.active .datatable-row-group, .ngx-datatable.material.multi-click-selection .datatable-body-row.active,
+  .ngx-datatable.material.multi-click-selection .datatable-body-row.active .datatable-row-group {
+    background-color: darkgrey;
+    color: #FFF; }
+    
+.alertbox {
+    padding: 20px;
+    margin-left: 100px;    
+}
+
+.filterdetails {
+    margin-bottom:50px;
+ }  
+ 
+ .ngx-datatable {
+     margin-bottom: 20px;
+ }
+
+ .stateErrors {
+     color: darkred
+ }
+
+ .stateWarnings {
+     color: orange
+ }
+
+ .stateSucess {
+     color: green
+ }
+
+ .stateRunning {
+     color: grey
+ }
+
+
+ /**
+ Switches**/
+
+/* The switch - the box around the slider */
+.switch {
+    position: relative;
+    display: inline-block;
+    width: 60px;
+    height: 34px;
+    float:right;
+  }
+  
+  /* Hide default HTML checkbox */
+  .switch input {display:none;}
+  
+  /* The slider */
+  .slider {
+    position: absolute;
+    cursor: pointer;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: #ccc;
+    -webkit-transition: .4s;
+    transition: .4s;
+  }
+  
+  .slider:before {
+    position: absolute;
+    content: "";
+    height: 26px;
+    width: 26px;
+    left: 4px;
+    bottom: 4px;
+    background-color: white;
+    -webkit-transition: .4s;
+    transition: .4s;
+  }
+  
+  input.default:checked + .slider {
+    background-color: #444;
+  }
+  input.primary:checked + .slider {
+    background-color: #2196F3;
+  }
+  input.success:checked + .slider {
+    background-color: #8bc34a;
+  }
+  input.info:checked + .slider {
+    background-color: #3de0f5;
+  }
+  input.warning:checked + .slider {
+    background-color: #FFC107;
+  }
+  input.danger:checked + .slider {
+    background-color: #f44336;
+  }
+  
+  input:focus + .slider {
+    box-shadow: 0 0 1px #2196F3;
+  }
+  
+  input:checked + .slider:before {
+    -webkit-transform: translateX(26px);
+    -ms-transform: translateX(26px);
+    transform: translateX(26px);
+  }
+  
+  /* Rounded sliders */
+  .slider.round {
+    border-radius: 34px;
+  }
+  
+  .slider.round:before {
+    border-radius: 50%;
+  }
+
+ 
+
+ 
