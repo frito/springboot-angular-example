@@ -32,7 +32,9 @@ import org.springframework.web.bind.annotation.RestController;
   private final static String PROP_DURATION = "duration";
 
   @Override public ResponseEntity<CasesInfo> getCases() {
-    File file = new File ("").getAbsoluteFile();
+    File file = new File ("cases").getAbsoluteFile();
+    if (! file.exists())
+      file.mkdirs();
 
     logger.info("Get cases in path " + file.getAbsolutePath());
 
@@ -97,6 +99,10 @@ import org.springframework.web.bind.annotation.RestController;
 
   @Override public ResponseEntity<Void> sendCase(@ApiParam(value = "", required = true) @Valid @RequestBody CaseInfo mailadress) {
 
+    File path = new File ("cases").getAbsoluteFile();
+    if (! path.exists())
+      path.mkdirs();
+
     logger.info("Send case in path " + new File ("").getAbsolutePath());
     logger.info("- Description : " + mailadress.getDescription());
     logger.info("- User        : " + mailadress.getUser());
@@ -108,7 +114,7 @@ import org.springframework.web.bind.annotation.RestController;
     properties.setProperty(PROP_USER, mailadress.getUser());
     properties.setProperty(PROP_DURATION, mailadress.getDurationMinutes().toString());
     try {
-      properties.store(new FileWriter(new File(UUID.randomUUID().toString() + ".case")), "#generated");
+      properties.store(new FileWriter(new File(path, UUID.randomUUID().toString() + ".case")), "#generated");
     } catch (IOException e) {
       return new ResponseEntity(HttpStatus.INTERNAL_SERVER_ERROR);
     }
